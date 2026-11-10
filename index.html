@@ -1,14 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PLANIT AI | Dashboard</title>
     <link rel="stylesheet" href="./src/css/output.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body>
-    <header></header>
-    <main></main>
+
+<body class="bg-[#E8F3EE] text-[#123C32]">
+    <header class=" bg-white border-b text-[#123C32]">
+        <nav class="max-w-7xl  mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="index.html" class="text-2xl font-bold"> PLANIT AI</a>
+            <div class="flex items-center gap-6">
+                <a href="index.html" class="text-[#176B55] font-bold border-b-2">
+                    Dashbord
+                </a>
+                <a href="new-project.html" class="hover:text-emerald-600"> Nouveau projet</a>
+            </div>
+            <button class="bg-[#123C32] text-white px-4 py-2 rounded-lg">
+                Parametre IA
+            </button>
+        </nav>
+    </header>
+    <!-- //7xl == 1280 -->
+    <main class="max-w-7xl mx-auto px-5 py-5 border-1 rounded-2xl my-2">
+        <section class="flex items-center justify-between">
+            <div>
+                <h1 class="font-bold  text-[#123C32]">
+                    Transformez vos idées en projets concrets
+                </h1>
+                <p class="text-[#176B55] mt-1">
+                    gerez vos projets et generez des plan de developpment avec IA
+                </p>
+            </div>
+            <a href="new-project.html"
+                class="bg-[#123C32] text-white rounded-xl font-bold hover:bg-[#176B55] px-4 py-2">
+                Nouveau projet +
+            </a>
+        </section>
+        <section class="flex justify-between items-center mt-6">
+            <article class=" p-5 rounded-lg  border border-[#E8F3EE]  flex items-center text-white ">
+                <div class="w-12  rounded-xl  flex items-center justify-center text-[#176B55]">
+                    <i data-lucide="folder-kanban"></i>
+                </div>
+                <div>
+                    <p class="text-2xl font-bold text-[#123C32]">3</p>
+                    <p class=" text-gray-500">Projets</p>
+                </div>
+            </article>
+            <article class=" p-5 rounded-lg  border border-[#E8F3EE]  flex items-center text-white ">
+                <div class="w-12  rounded-xl  flex items-center justify-center text-[#176B55]">
+                    <i data-lucide="clipboard-list"></i>
+                </div>
+                <div>
+                    <p class="text-2xl font-bold text-[#123C32]">3</p>
+                    <p class=" text-gray-500">Taches</p>
+                </div>
+            </article>
+            <article class=" p-5 rounded-lg  border border-[#E8F3EE]  flex items-center text-white ">
+                <div class="w-12  rounded-xl  flex items-center justify-center text-[#176B55]">
+                    <i data-lucide="circle-check-big"></i>
+                </div>
+                <div>
+                    <p class="text-2xl font-bold text-[#123C32]">3</p>
+                    <p class=" text-gray-500">Termine</p>
+                </div>
+            </article>
+            <article class=" p-5 rounded-lg  border border-[#E8F3EE]  flex items-center text-white ">
+                <div class="w-12  rounded-xl  flex items-center justify-center text-[#176B55]">
+                    <i data-lucide="activity"></i>
+                </div>
+                <div>
+                    <p class="text-2xl font-bold text-[#123C32]">30%</p>
+                    <p class=" text-gray-500">Avancement global</p>
+                </div>
+            </article>
+        </section>
+        <section>
+            <div class="flex items-center justify-center"> 
+                    <h2 class=" font-bold text-[#123C32]">
+                        Mes projets
+                    </h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 ">
+
+                <article class="bg-white rounded-xl border border-[#E8F3EE] p-5 mt-[30px] max-w-3xl">
+                    <div>
+                        <h3 class="text-lg font-bold text-[#123C32]">
+                            E-commerce Platform
+                        </h3>
+                        <p class=" text-gray-500 ">
+                            Développement d une plateforme e-commerce
+                            avec React et Laravel.
+                        </p>
+                        <div class="mt-5">
+
+                            <div class="flex items-center justify-between  mb-2">
+                                <span class="text-gray-500">Progression</span>
+                                <span class="font-bold text-[#123C32]">69%</span>
+                            </div>
+
+                            <div class="w-full h-2 bg-[#E8F3EE] rounded-full ">
+                                <div class="w-[65%] h-full bg-[#176B55] rounded-full"></div>
+                            </div>
+
+                        </div>
+                        <div class="flex justify-between items-center mt-5">
+                            <a href="project.html?id=1"
+                                class=" font-bold text-[#176B55] hover:text-[#123C32] border rounded-2xl py-2 px-3">
+                                Ouvrir le projet
+                            </a>
+                            <a href="project.html?id=1"
+                                class=" font-bold text-[#176B55] hover:text-[#123C32] border rounded-2xl py-2 px-3">
+                                supprmer
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="bg-white rounded-xl border border-[#E8F3EE] p-5 mt-[30px] max-w-3xl">
+                    <div>
+                        <h3 class="text-lg font-bold text-[#123C32]">
+                            E-commerce Platform
+                        </h3>
+                        <p class=" text-gray-500 ">
+                            Développement d une plateforme e-commerce
+                            avec React et Laravel.
+                        </p>
+                        <div class="mt-5">
+
+                            <div class="flex items-center justify-between  mb-2">
+                                <span class="text-gray-500">Progression</span>
+                                <span class="font-bold text-[#123C32]">69%</span>
+                            </div>
+
+                            <div class="w-full h-2 bg-[#E8F3EE] rounded-full ">
+                                <div class="w-[65%] h-full bg-[#176B55] rounded-full"></div>
+                            </div>
+
+                        </div>
+                        <div class="flex justify-between items-center mt-5">
+                            <a href="project.html?id=1"
+                                class=" font-bold text-[#176B55] hover:text-[#123C32] border rounded-2xl py-2 px-3">
+                                Ouvrir le projet
+                            </a>
+                            <a href="project.html?id=1"
+                                class=" font-bold text-[#176B55] hover:text-[#123C32] border rounded-2xl py-2 px-3">
+                                supprmer
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="bg-white rounded-xl border border-[#E8F3EE] p-5 mt-[30px] max-w-3xl">
+                    <div>
+                        <h3 class="text-lg font-bold text-[#123C32]">
+                            E-commerce Platform
+                        </h3>
+                        <p class=" text-gray-500 ">
+                            Développement d une plateforme e-commerce
+                            avec React et Laravel.
+                        </p>
+                        <div class="mt-5">
+
+                            <div class="flex items-center justify-between  mb-2">
+                                <span class="text-gray-500">Progression</span>
+                                <span class="font-bold text-[#123C32]">69%</span>
+                            </div>
+
+                            <div class="w-full h-2 bg-[#E8F3EE] rounded-full ">
+                                <div class="w-[65%] h-full bg-[#176B55] rounded-full"></div>
+                            </div>
+
+                        </div>
+                        <div class="flex justify-between items-center mt-5">
+                            <a href="project.html?id=1"
+                                class=" font-bold text-[#176B55] hover:text-[#123C32] border rounded-2xl py-2 px-3">
+                                Ouvrir le projet
+                            </a>
+                            <a href="project.html?id=1"
+                                class=" font-bold text-[#176B55] hover:text-[#123C32] border rounded-2xl py-2 px-3">
+                                supprmer
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+                <article class="bg-white rounded-xl border border-[#E8F3EE] p-5 mt-[30px] max-w-[400px]">
+                    <div>
+                        <h3 class="text-lg font-bold text-[#123C32]">
+                            E-commerce Platform
+                        </h3>
+                        <p class=" text-gray-500 ">
+                            Développement d une plateforme e-commerce
+                            avec React et Laravel.
+                        </p>
+                        <div class="mt-5">
+
+                            <div class="flex items-center justify-between  mb-2">
+                                <span class="text-gray-500">Progression</span>
+                                <span class="font-bold text-[#123C32]">69%</span>
+                            </div>
+
+                            <div class="w-full h-2 bg-[#E8F3EE] rounded-full ">
+                                <div class="w-[65%] h-full bg-[#176B55] rounded-full"></div>
+                            </div>
+
+                        </div>
+                        <div class="flex justify-between items-center mt-5">
+                            <a href="project.html?id=1"
+                                class=" font-bold text-[#176B55] hover:text-[#123C32] border rounded-2xl py-2 px-3">
+                                Ouvrir le projet
+                            </a>
+                            <a href="project.html?id=1"
+                                class=" font-bold text-[#176B55] hover:text-[#123C32] border rounded-2xl py-2 px-3">
+                                supprmer
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+        </section>
+    </main>
     <script type="module" src="./src/js/main.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
+
 </html>
