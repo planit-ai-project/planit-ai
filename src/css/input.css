@@ -1,0 +1,14 @@
+
+@import "tailwindcss";
+
+@theme {
+  --color-dark-green: #123C32;
+  --color-emerald: #176B55;
+  --color-mint: #3D9B7A;
+  --color-soft-green: #E8F3EE;
+  --color-white: #FFFFFF;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
