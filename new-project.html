@@ -1,14 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PLANIT AI | Nouveau projet</title>
     <link rel="stylesheet" href="./src/css/output.css">
 </head>
-<body>
-    <header></header>
-    <main></main>
+
+<body class="bg-[#E8F3EE] text-[#123C32] min-h-screen flex flex-col ">
+    <header class=" bg-white border-b text-[#123C32] ">
+        <nav class="max-w-7xl  mx-auto px-6 py-4 flex items-center flex-col justify-between md:flex-row">
+            <a href="index.html" class="text-2xl font-bold"> PLANIT <span class="text-[#176B55]">AI</span></a>
+            <div class="flex items-center flex-col  md:flex-row md:gap-6">
+                <a href="index.html" class="hover:text-emerald-600">
+                    Dashbord
+                </a>
+                <a href="new-project.html" class="text-[#176B55] font-bold border-b-2"> Nouveau projet</a>
+            </div>
+            <button id="Parametre" class="bg-[#123C32] text-white px-4 py-2 rounded-lg">
+                Parametre IA
+            </button>
+        </nav>
+    </header>
+
+    <main class=" w-full max-w-7xl mx-auto px-5 py-5  rounded-2xl mt-2 mb-8">
+        <div class="grid grid-col-1 md:grid-cols-[60%_40%] border-1 rounded-2xl  p-5 gap-2">
+            <form id="form"  data-parsley-validate>
+                <div class="text-[20px] p-3">PLANIT <span class="text-[#176B55]">IA</span>
+                </div>
+                <div class="text-gray-500 text-[12px] px-3 font-bold">cree votre projet avec une seul click
+                </div>
+                <div id="cercle" class="flex gap-[10px] mt-2 px-3">
+                    <div
+                        class="w-[30px] h-[30px] border-1 bg-[#176B55] text-white border-[#176B55] rounded-full flex justify-center items-center">
+                        1</div>
+                    <div
+                        class="w-[30px] h-[30px] border-1 border-[#176B55] rounded-full flex justify-center items-center">
+                        2</div>
+                </div>
+                <div class="w-[95%] p-3 px-3">
+                    <div class="w-[50%] h-[6px] bg-[#176B55] rounded-2xl mt-2" id="progress"></div>
+                </div>
+                <!-- step1 -->
+                <div id="formule1" class="flex flex-col gap-2 p-5 ">
+                    <label for="projectName" class=" font-bold mb-2"> Nom du projet</label>
+                    <input type="text" id="projectName" placeholder="nom de votre projet"
+                        required
+                        class="border rounded-lg p-3 border-gray-700 outline-none focus:border-[#176B55]"
+                        data-parsley-group="step1" data-parsley-required-message="Le nom est obligatoire" />
+
+                    <label for="description" class=" font-bold mb-2"> Description</label>
+                    <textarea id="description" placeholder="Décrivez votre projet..."
+                        required
+                        data-parsley-required-message="La description est obligatoire" data-parsley-group="step1"
+                        class="border border-gray-700 rounded-lg p-3 outline-none focus:border-[#176B55]"></textarea>
+                    <label for="brief" class=" font-bold mb-2"> Brief complet</label>
+                    <textarea id="brief" placeholder="decriver votre obkectif et votre fonctionalite..."
+                        required
+                        class="border border-gray-700 rounded-lg p-3 outline-none focus:border-[#176B55]"
+                        data-parsley-required-message="brief obligatoir" data-parsley-group="step1"></textarea>
+                </div>
+                <!-- step2 -->
+                <div id="formule2" class="flex flex-col gap-2 p-5 hidden">
+                    <label for="duration">Durée (en jours)</label>
+                    <input placeholder="nombre de jour de projet " type="number" id="duration"
+                        min="1"
+                        data-parsley-min="1"
+                        data-parsley-min-message="La valeur doit être superieure ou egale a 1"
+                        data-parsley-type="integer"
+                        data-parsley-type-message="Veuillez saisir un nombre entier"
+                        required
+                        data-parsley-required-message="nombre de jour de projet obligatoire" data-parsley-group="step2"
+                        class="border border-gray-700 rounded-lg p-3 outline-none focus:border-[#176B55]">
+                    <label for="developers">Nombre de developpeurs</label>
+                    <input type="number" id="developers"
+                        min="1"
+                        data-parsley-min="1"
+                        data-parsley-min-message="La valeur doit être superieure ou egale a 1"
+                        data-parsley-type="integer"
+                        data-parsley-type-message="Veuillez saisir un nombre entier"
+                        required
+                        class="border border-gray-700 rounded-lg p-3 outline-none focus:border-[#176B55]"
+                        data-parsley-required-message="Nombre de developpeurs obligatoire"
+                        data-parsley-group="step2"
+                        placeholder="nombre de developpeurs">
+                    <label for="technologies">Technologies</label>
+                    <input type="text" id="Technologies"
+                        required
+                        data-parsley-required-message="Technologies obligatoire"
+                        data-parsley-group="step2"
+                        class="border border-gray-700 rounded-lg p-3 outline-none focus:border-[#176B55]"
+                        placeholder="nombre de developpeurs">
+                    <label for="difficulty">Niveau de difficulte</label>
+                    <select name="difficulty" id="difficulty"
+                        required
+                        data-parsley-required-message="difficulte obligatoir"
+                        data-parsley-group="step2"
+                        class="border border-gray-700 rounded-lg p-3 outline-none focus:border-[#176B55] bg-[#E8F3EE]">
+                        <option value="">Choisir un niveau</option>
+                        <option value="Beginner">Beginner</option>
+                        <option value="Intermediate">Intermediate</option>
+                        <option value="Advanced">Advanced</option>
+                    </select>
+                </div>
+
+                <div class="flex justify-end mr-5">
+                    <button type="button"  id="precedent" class="p-1 ml-5 bg-[#176B55] text-white rounded-full w-25 text-center hidden ">
+                        precedent
+                    </button>
+                    <button type="button"  id="suivant" class="p-1 bg-[#176B55] text-white rounded-full w-20 text-center ">
+                        suivant
+                    </button>
+                </div>
+            </form>
+            <div class=""><img src="src/images/form1.png" alt="" class="h-142 w-full rounded-2xl"></div>
+        </div>
+    </main>
+    <dialog id="dialog" class="w-[20%] rounded-2xl p-6 ">
+    <div class="flex items-center justify-between mb-5">
+        <h2 class="font-bold text-dark-green">
+            Clé API Gemini
+        </h2>
+        <button type="button" id="closedialoge">
+            x
+        </button>
+    </div>
+    <input type="password" id="apiKey" placeholder="Entrez votre clé API..." class="w-full border border-gray-300 rounded-lg p-3 mb-4">
+    <div class="flex justify-between mb-5">
+        <button type="button" id="Enregistrer" class=" bg-emerald text-white rounded-lg p-2">Enregistrer</button>
+        <button type="button" id="Supprimer" class=" bg-emerald text-white rounded-lg p-2">Supprimer</button>
+    </div>
+    <div  class="flex items-center justify-between">
+        <label for="demo">Mode demo</label>
+        <input type="checkbox" id="demo">
+    </div>
+    </dialog>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- Parsley.js -->
+    <script src="https://cdn.jsdelivr.net/npm/parsleyjs@2.9.2/dist/parsley.min.js"></script>
+    <!-- JavaScript -->
     <script type="module" src="./src/js/main.js"></script>
+    <script type="module" src="./src/js/validation.js"></script>
+    <script type="module" src="./src/js/ui.js"></script>
 </body>
+
 </html>
