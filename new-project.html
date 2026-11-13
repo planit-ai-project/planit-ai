@@ -18,7 +18,7 @@
                 </a>
                 <a href="new-project.html" class="text-[#176B55] font-bold border-b-2"> Nouveau projet</a>
             </div>
-            <button id="Parametre" class="bg-[#123C32] text-white px-4 py-2 rounded-lg">
+            <button id="Parametre"  class="bg-[#123C32] text-white px-4 py-2 rounded-lg">
                 Parametre IA
             </button>
         </nav>
@@ -109,7 +109,7 @@
                     <button type="button"  id="precedent" class="p-1 ml-5 bg-[#176B55] text-white rounded-full w-25 text-center hidden ">
                         precedent
                     </button>
-                    <button type="button"  id="suivant" class="p-1 bg-[#176B55] text-white rounded-full w-20 text-center ">
+                    <button  type="button"  id="suivant" class="p-1 bg-[#176B55] text-white rounded-full w-20 text-center ">
                         suivant
                     </button>
                 </div>
@@ -118,23 +118,23 @@
         </div>
     </main>
     <dialog id="dialog" class="w-[20%] rounded-2xl p-6 ">
-    <div class="flex items-center justify-between mb-5">
-        <h2 class="font-bold text-dark-green">
-            Clé API Gemini
-        </h2>
-        <button type="button" id="closedialoge">
-            x
-        </button>
-    </div>
-    <input type="password" id="apiKey" placeholder="Entrez votre clé API..." class="w-full border border-gray-300 rounded-lg p-3 mb-4">
-    <div class="flex justify-between mb-5">
-        <button type="button" id="Enregistrer" class=" bg-emerald text-white rounded-lg p-2">Enregistrer</button>
-        <button type="button" id="Supprimer" class=" bg-emerald text-white rounded-lg p-2">Supprimer</button>
-    </div>
-    <div  class="flex items-center justify-between">
-        <label for="demo">Mode demo</label>
-        <input type="checkbox" id="demo">
-    </div>
+        <div class="flex items-center justify-between mb-5">
+            <h2 class="font-bold text-dark-green">
+                Clé API Gemini
+            </h2>
+            <button type="button" id="closedialoge">
+                x
+            </button>
+        </div>
+        <input type="password" id="apiKey" placeholder="Entrez votre clé API..."
+            class="w-full border border-gray-300 rounded-lg p-3 mb-2">
+        <div class="flex justify-between mb-1">
+            <button type="button" id="Enregistrer" class=" bg-emerald text-white rounded-lg p-2 w-[48%] cursor-pointer">Enregistrer</button>
+            <button type="button" id="Supprimer" class=" bg-emerald text-white rounded-lg p-2 w-[48%] cursor-pointer">Supprimer</button>
+        </div>
+        <div class="flex justify-center">
+            <a id="demo" href="project.html" class="bg-emerald text-white rounded-lg p-2 w-full cursor-pointer">Mode demo</a>
+        </div>
     </dialog>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -142,8 +142,7 @@
     <script src="https://cdn.jsdelivr.net/npm/parsleyjs@2.9.2/dist/parsley.min.js"></script>
     <!-- JavaScript -->
     <script type="module" src="./src/js/main.js"></script>
-    <script type="module" src="./src/js/validation.js"></script>
-    <script type="module" src="./src/js/ui.js"></script>
+    <!-- <script type="module" src="./src/js/validation.js"></script>
+    <script type="module" src="./src/js/ui.js"></script> -->
 </body>
-
 </html>

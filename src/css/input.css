@@ -12,7 +12,9 @@
 body {
   font-family: Arial, sans-serif;
 }
-
+button {
+  @apply cursor-pointer;
+}
 .parsley-errors-list {
     @apply text-red-600 text-[13px] mt-1;
 }

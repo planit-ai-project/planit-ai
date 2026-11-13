@@ -208,27 +208,30 @@
 
     </div>
     <dialog id="dialog" class="w-[20%] rounded-2xl p-6 ">
-    <div class="flex items-center justify-between mb-5">
-        <h2 class="font-bold text-dark-green">
-            Clé API Gemini
-        </h2>
-        <button type="button" id="closedialoge">
-            x
-        </button>
-    </div>
-    <input type="password" id="apiKey" placeholder="Entrez votre clé API..." class="w-full border border-gray-300 rounded-lg p-3 mb-4">
-    <div class="flex justify-between mb-5">
-        <button type="button" id="Enregistrer" class=" bg-emerald text-white rounded-lg p-2">Enregistrer</button>
-        <button type="button" id="Supprimer" class=" bg-emerald text-white rounded-lg p-2">Supprimer</button>
-    </div>
-    <div  class="flex items-center justify-between">
-        <label for="demo">Mode demo</label>
-        <input type="checkbox" id="demo">
-    </div>
+        <div class="flex items-center justify-between mb-5">
+            <h2 class="font-bold text-dark-green">
+                Clé API Gemini
+            </h2>
+            <button type="button" id="closedialoge">
+                x
+            </button>
+        </div>
+        <input type="password" id="apiKey" placeholder="Entrez votre clé API..."
+            class="w-full border border-gray-300 rounded-lg p-3 mb-2">
+        <div class="flex justify-between mb-1">
+            <button type="button" id="Enregistrer" class=" bg-emerald text-white rounded-lg p-2 w-[48%] cursor-pointer">Enregistrer</button>
+            <button type="button" id="Supprimer" class=" bg-emerald text-white rounded-lg p-2 w-[48%] cursor-pointer">Supprimer</button>
+        </div>
+        <div class="flex justify-center">
+            <a href="project.html" id="demo" class="bg-emerald text-white rounded-lg p-2 w-full cursor-pointer">Mode demo</a>
+        </div>
     </dialog>
-    <script type="module" src="./src/js/main.js">
-    </script>
-    <script type="module" src="./src/js/ui.js"></script>
+    <script type="module" src="./src/js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/parsleyjs@2.9.2/dist/parsley.min.js"></script>
+
+
+    <!-- <script type="module" src="./src/js/ui.js"></script> -->
     <script>
         lucide.createIcons();
     </script>

@@ -1,15 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PLANIT AI | Task Board</title>
-        <link rel="stylesheet" href="./src/css/output.css">
+    <link rel="stylesheet" href="./src/css/output.css">
 </head>
-<body>
-    <header></header>
-    <main></main>
-        <script type="module" src="./js/main.js"></script>
+
+<body class="bg-[#E8F3EE] text-[#123C32] min-h-screen flex flex-col">
+    <header class=" bg-white border-b text-[#123C32] ">
+        <nav class="max-w-7xl  mx-auto px-6 py-4 flex items-center flex-col justify-between md:flex-row">
+            <a href="index.html" class="text-2xl font-bold"> PLANIT <span class="text-[#176B55]">AI</span></a>
+            <div class="flex items-center flex-col  md:flex-row md:gap-6">
+                <a href="index.html" class="text-[#176B55] ">
+                    Dashbord
+                </a>
+                <a href="new-project.html" class="hover:text-emerald-600"> Nouveau projet</a>
+            </div>
+            <button id="Parametre" class="bg-[#123C32] text-white px-4 py-2 rounded-lg">
+                Parametre IA
+            </button>
+        </nav>
+    </header>
+    <main>
+        <section id="demoprogress">
+        </section>
+        <section id="demotache" class="grid grid-cols-1 md:grid-cols-3 gap-4 w-[88%] m-auto">
+            <article class="bg-white rounded-xl border p-4">
+                <h2>To Do</h2>
+                <div id="todoTache" class='flex flex-col  gap-[10px]'></div>
+            </article>
+            <article class="bg-white rounded-xl border p-4">
+                <h2>In Progress</h2>
+                <div id="progressTache" class='flex flex-col gap-[10px]'></div>
+            </article>
+            <article class="bg-white rounded-xl border p-4">
+                <h2>Done</h2>
+                <div id="doneTache" class='flex flex-col gap-[10px]'></div>
+            </article>
+        </section>
+        <dialog id="detailTache" class="w-[88%] md:w-[550px] rounded-2xl p-6">
+
+            <div class="flex justify-between items-center mb-5">
+                <h2 class="font-bold text-xl text-[#123C32]">
+                    Détails de la tâche
+                </h2>
+
+                <button id="closeDetail" type="button" class="text-gray-500 text-xl">
+                    &times;
+                </button>
+            </div>
+
+            <div id="detailContent"></div>
+        </dialog>
+        <!-- cursor:pointer -->
+    </main>
+    <dialog id="dialog" class="w-[20%] rounded-2xl p-6 ">
+        <div class="flex items-center justify-between mb-5">
+            <h2 class="font-bold text-dark-green">
+                Clé API Gemini
+            </h2>
+            <button type="button" id="closedialoge">
+                x
+            </button>
+        </div>
+        <input type="password" id="apiKey" placeholder="Entrez votre clé API..."
+            class="w-full border border-gray-300 rounded-lg p-3 mb-2">
+        <div class="flex justify-between mb-1">
+            <button type="button" id="Enregistrer"
+                class=" bg-emerald text-white rounded-lg p-2 w-[48%] cursor-pointer">Enregistrer</button>
+            <button type="button" id="Supprimer"
+                class=" bg-emerald text-white rounded-lg p-2 w-[48%] cursor-pointer">Supprimer</button>
+        </div>
+        <div class="flex justify-center">
+            <a id="demo" href="project.html" class="bg-emerald text-white rounded-lg p-2 w-full cursor-pointer">Mode
+                demo</a>
+        </div>
+    </dialog>
+    <script type="module" src="./src/js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/parsleyjs@2.9.2/dist/parsley.min.js"></script>
 
 </body>
+
 </html>

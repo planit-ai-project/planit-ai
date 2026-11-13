@@ -9,4 +9,3 @@ export function affiche_dialoge() {
         dialog.close()
     })
 }
-affiche_dialoge()
