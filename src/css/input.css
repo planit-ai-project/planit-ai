@@ -23,8 +23,10 @@ textarea.parsley-error,
 select.parsley-error {
     border-color: #DC2626;
 }
-#dialog{
+/* #dialog{
     position: fixed;
     top: 12%;
     left: 60%;
-}
+} */
+
+

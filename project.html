@@ -40,23 +40,9 @@
                 <div id="doneTache" class='flex flex-col gap-[10px]'></div>
             </article>
         </section>
-        <dialog id="detailTache" class="w-[88%] md:w-[550px] rounded-2xl p-6">
 
-            <div class="flex justify-between items-center mb-5">
-                <h2 class="font-bold text-xl text-[#123C32]">
-                    Détails de la tâche
-                </h2>
-
-                <button id="closeDetail" type="button" class="text-gray-500 text-xl">
-                    &times;
-                </button>
-            </div>
-
-            <div id="detailContent"></div>
-        </dialog>
-        <!-- cursor:pointer -->
     </main>
-    <dialog id="dialog" class="w-[20%] rounded-2xl p-6 ">
+<dialog id="dialog" class="w-[90%] max-w-[400px] rounded-2xl p-5 mx-auto fixed top-5">
         <div class="flex items-center justify-between mb-5">
             <h2 class="font-bold text-dark-green">
                 Clé API Gemini
@@ -74,8 +60,22 @@
                 class=" bg-emerald text-white rounded-lg p-2 w-[48%] cursor-pointer">Supprimer</button>
         </div>
         <div class="flex justify-center">
-            <a id="demo" href="project.html" class="bg-emerald text-white rounded-lg p-2 w-full cursor-pointer">Mode
+            <a id="demo" href="project.html" class="bg-emerald text-white text-center rounded-lg p-2 w-full cursor-pointer">Mode
                 demo</a>
+        </div>
+    </dialog>
+    <dialog class=" bg-gray-100 w-[95%] md:w-[50%]  p-4  rounded-2xl md:p-8 mx-auto my-auto" id="detaille">
+
+        <div class="flex justify-between items-center mb-5">
+            <h2 class="font-bold text-xl text-[#123C32] text-center">
+                    Détails de la tâche
+            </h2>
+            <button class=" font-bold text-[20px]" type="button" id="closedetaille">
+                x
+            </button>
+        </div>
+        <div id="detailContent">
+
         </div>
     </dialog>
     <script type="module" src="./src/js/main.js"></script>
