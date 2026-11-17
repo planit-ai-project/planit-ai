@@ -1,3 +1,5 @@
+import { afficherForm } from "./modifier.js";
+import { supprimerTache } from './supprimer.js';
 export async function affichage_demo() {
     try {
         const res = await fetch('./src/js/demo.json')
@@ -5,6 +7,10 @@ export async function affichage_demo() {
             throw new Error(` http ${res.status}`);
         }
         const data = await res.json()
+        const savedTasks = localStorage.getItem('demoTasks')
+        if (savedTasks) {
+            data.tasks = JSON.parse(savedTasks);
+        }
         //affichaes des taches demo
         const total = data.tasks.length
         const termine = data.tasks.filter(e => e.status === 'done').length
@@ -72,13 +78,9 @@ export async function affichage_demo() {
         const detailContent = document.getElementById('detailContent');
         const closeDetail = document.getElementById('closedetaille');
         data.tasks.forEach(t => {
-            const article = document.getElementById(t.id);
+            const article = document.getElementById(t.id)
             article.addEventListener('click', () => {
-                let stories = ''
-                let criteria = ''
                 let dependencies = ''
-                t.userStories.forEach(s => { stories += `<li>${s}</li>` });
-                t.acceptanceCriteria.forEach(c => { criteria += `<li>${c}</li>` });
                 t.dependencies.forEach(d => { dependencies += `<li>${d}</li>` });
                 if (t.dependencies.length === 0) {
                     dependencies = '<li>Aucune dépendance</li>';
@@ -95,16 +97,14 @@ export async function affichage_demo() {
             </h3>
         </div>
         <div class="w-full flex justify-around items-center border border-gray-200 rounded-xl">
-            <div class="w-1/3 text-center py-2 bg-[#E8F3EE] border-b-2 border-[#176B55] rounded-t-xl text-[#176B55] font-bold cursor-pointer">
+            <div id="tabDetail" class="w-1/3 text-center py-2 bg-[#E8F3EE] border-b-2 border-[#176B55] rounded-t-xl text-[#176B55] font-bold cursor-pointer">
                 Détail
             </div>
-            <div class="w-1/3 text-center p-2 text-gray-500 cursor-pointer">
+            <div id="tabModifier" class="w-1/3 text-center p-2 text-gray-500 cursor-pointer">
                 Modifier
             </div>
-            <div class="w-1/3 text-center p-2 text-gray-500 cursor-pointer">
-                Supprimer
-            </div>
         </div>
+        <div id="tabContent" class="flex flex-col gap-4">
         <div class="border border-gray-200 rounded-xl p-2">
             <h4 class="font-bold text-[#123C32] mb-2">
                 Description
@@ -134,48 +134,90 @@ export async function affichage_demo() {
         <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
             <div class="border border-gray-200 rounded-xl p-3">
                 <p class="text-sm text-gray-500">Priorité</p>
-                <strong class="text-[#123C32]">${t.priority}</strong>
+                <p class="text-[#123C32]">${t.priority}</p>
             </div>
 
             <div class="border border-gray-200 rounded-xl p-3">
                 <p class="text-sm text-gray-500">Importance</p>
-                <strong class="text-[#123C32]">${t.importance}</strong>
+                <p class="text-[#123C32]">${t.importance}</p>
             </div>
             <div class="border border-gray-200 rounded-xl p-3">
                 <p class="text-sm text-gray-500">Taille</p>
-                <strong class="text-[#123C32]">${t.size}</strong>
+                <p class="text-[#123C32]">${t.size}</p>
             </div>
 
             <div class="border border-gray-200 rounded-xl p-3">
                 <p class="text-sm text-gray-500">Temps estimé</p>
-                <strong class="text-[#123C32]">${t.estimatedTime} h</strong>
+                <p class="text-[#123C32]">${t.estimatedTime} h</p>
             </div>
             <div class="border border-gray-200 rounded-xl p-3">
                 <p class="text-sm text-gray-500">Deadline</p>
-                <strong class="text-[#123C32]">${t.deadline}</strong>
+                <p class="text-[#123C32]">${t.deadline}</p>
             </div>
 
             <div class="border border-gray-200 rounded-xl p-3">
                 <p class="text-sm text-gray-500">Statut</p>
-                <strong class="text-[#123C32]">${t.status}</strong>
+                <p class="text-[#123C32]">${t.status}</p>
             </div>
         </div> 
-        <div class="border border-gray-200 rounded-xl p-3">
+        <div class="flex justify-between border border-gray-200 rounded-xl p-3">
+          <div>
              <h4 class="font-bold text-[#123C32] mb-2">
                     Dependencies
              </h4>
-              <ul class="list-disc list-inside text-sm text-gray-600">
-                    ${dependencies}
+              <ul class=" text-sm text-gray-600">
+                    ${dependencies}   
               </ul>
-        </div>      
+          </div> 
+          <div id="tabSupprimer" class=" px-4 py-2 bg-[#176B55] rounded-lg border border-2 text-center  text-white cursor-pointer">
+                     Supprimer
+          </div>
+        </div>
+            
+    </div>
     </div>
         `
-                detailTach.showModal();
+                //style de button
+                const tabDetail = document.getElementById('tabDetail')
+                const tabModifier = document.getElementById('tabModifier')
+                const tabSupprimer = document.getElementById('tabSupprimer')
+                const tabs = [tabDetail, tabModifier]
+                function changerStyle(e) {
+                    tabs.forEach(tab => {
+                        tab.className = 'w-1/3 text-center p-2 text-gray-500 cursor-pointer';
+                    });
+                    e.className = 'w-1/3 text-center py-2 bg-[#E8F3EE] border-b-2 border-[#176B55] rounded-t-xl text-[#176B55] font-bold cursor-pointer';
+                }
+                //modifier
+                const tabContent = document.getElementById('tabContent');
+                const detailHTML = tabContent.innerHTML;
+                tabModifier.addEventListener('click', () => {
+                    changerStyle(tabModifier);
+                    afficherForm(t, data.tasks, tabContent, detailHTML, detailTach, changerStyle, tabDetail)
+                });
+                //if click changer style 
+                tabDetail.addEventListener('click', () => {
+                    changerStyle(tabDetail)
+                    tabContent.innerHTML = detailHTML
+                })
+                //  tabModifier.addEventListener('click', () => {
+                //      changerStyle(tabModifier)
+                //  })
+                tabSupprimer.addEventListener('click', () => {
+                    const confirmer = confirm('Voulez-vous supprimer cette tâche ?');
+                    if (confirmer) {
+                        supprimerTache(t, data.tasks);
+                        detailTach.close();
+                        // location.reload();
+                    }
+                });
+                //showmodel
+                detailTach.showModal()
             })
         })
-
+        //closemodel
         closeDetail.onclick = () => {
-            detailTach.close();
+            detailTach.close()
         }
     } catch (error) {
         console.log('errore de telechargement', error.message)
