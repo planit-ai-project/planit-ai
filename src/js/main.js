@@ -1,11 +1,17 @@
-    import { next } from "./validation.js";
-    import { affiche_dialoge } from "./ui.js";
-    import { affichage_demo } from "./demo.js";
+    import { next } from "./validation.js"
+    import { affiche_dialoge } from "./ui.js"
+    import { affichage_demo } from "./demo.js"
+    import { ModalAPI } from './ui.js';    
     affiche_dialoge()
+    //input
  if (document.getElementById('form')) {
     next();
 }
-
+//demo
 if (document.getElementById('demoprogress')) {
     affichage_demo();
+}
+//localstorage
+if (document.getElementById('dialog')) {
+    ModalAPI();
 }
