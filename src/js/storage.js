@@ -13,3 +13,10 @@ export function geteapi() {
 export function getdemo() {
     return sessionStorage.getItem('demo') === 'true'
 }
+export function savePlan(plan) {
+    localStorage.setItem('plan', JSON.stringify(plan));
+}
+
+export function getPlan() {
+    return JSON.parse(localStorage.getItem('plan'));
+}

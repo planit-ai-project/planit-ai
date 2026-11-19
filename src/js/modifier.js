@@ -104,6 +104,7 @@ export function afficherForm(t, tasks, tabContent, detailHTML, detailTach, activ
                 return;
             }
             detailTach.close();
+            //!!!!!!!!!!!!!!!
             location.reload();
         })
                   })

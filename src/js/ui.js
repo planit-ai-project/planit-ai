@@ -18,7 +18,7 @@ export function ModalAPI() {
     const enregistrer = document.getElementById('Enregistrer')
     const supprimer = document.getElementById('Supprimer')
     const demo = document.getElementById('demo')
-    const closeDialog = document.getElementById('closedialoge')
+    // const closeDialog = document.getElementById('closedialoge')
   enregistrer.addEventListener('click', () => {
     const api = apiKey.value.trim()
     if (api === '') {

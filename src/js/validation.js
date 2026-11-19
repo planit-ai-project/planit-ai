@@ -1,14 +1,16 @@
+import { buildPrompt } from './prompt.js'
+import { generatePlan } from './api.js'
+import { savePlan } from './storage.js';
 const form = $('#form').parsley();
 let step = 0
 export function next() {
-       
     const progre = document.getElementById('progress')
     const formule1 = document.querySelector('#formule1')
     const formule2 = document.querySelector('#formule2')
     const cercle = document.getElementById('cercle')
     const suivant = document.getElementById('suivant')
     const presedent = document.getElementById('precedent')
-    suivant.addEventListener('click', () => {
+    suivant.addEventListener('click',  async() => {
         if (step === 0) {
         if (form.validate({ group: 'step1' })) {
             progre.style.width = '100%'
@@ -24,7 +26,32 @@ export function next() {
              }
         } else if (step === 1) { 
                 if ((form.validate({ group: 'step2' }))) {
-                    suivant.style.backgroundColor = 'red'
+        const project = {
+            name: document.getElementById('projectName').value,
+            description: document.getElementById('description').value,
+            brief: document.getElementById('brief').value,
+            duration: Number(document.getElementById('duration').value),
+            developers: Number(document.getElementById('developers').value),
+            technologies: document.getElementById('Technologies').value,
+            difficulty: document.getElementById('difficulty').value
+        }
+        try {
+            suivant.disabled = true
+            suivant.textContent = 'Generation...'
+            const prompt = buildPrompt(project);
+            const plan = await generatePlan(prompt)
+                console.log('Projet généré :', plan);
+                console.log('Nombre de tâches :', plan.tasks.length);
+            savePlan(plan)
+            alert('plan avec succes')
+            // window.location.href = 'project.html'
+            console.log(plan);
+        } catch (error) {
+             alert(error.message)
+        }finally {
+            suivant.disabled = false;
+            suivant.textContent = 'Génerer';
+        }
                 }
 
         }
