@@ -866,9 +866,6 @@
   .w-8 {
     width: calc(var(--spacing) * 8);
   }
-  .w-12 {
-    width: calc(var(--spacing) * 12);
-  }
   .w-13 {
     width: calc(var(--spacing) * 13);
   }
@@ -955,6 +952,9 @@
   }
   .max-w-\[320px\] {
     max-width: 320px;
+  }
+  .max-w-\[350px\] {
+    max-width: 350px;
   }
   .max-w-\[400px\] {
     max-width: 400px;
@@ -1283,10 +1283,6 @@
   .rounded-t-xl {
     border-top-left-radius: var(--radius-xl);
     border-top-right-radius: var(--radius-xl);
-  }
-  .rounded-l {
-    border-top-left-radius: 0.25rem;
-    border-bottom-left-radius: 0.25rem;
   }
   .rounded-b-\[16px\] {
     border-bottom-right-radius: 16px;
@@ -2837,6 +2833,32 @@ button {
 }
 input.parsley-error, textarea.parsley-error, select.parsley-error {
   border-color: #DC2626;
+}
+#generationDialog {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  background-color: #FFFFFF;
+}
+#generationDialog::backdrop {
+  background: rgba(18, 60, 50, 0.35);
+}
+#generationDialog[open] p {
+  animation: anim 2s infinite;
+}
+@keyframes anim {
+  0%,10% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  90%,100% {
+    opacity: 1;
+    transform: scale(0.9);
+  }
 }
 @property --tw-translate-x {
   syntax: "*";

@@ -1,6 +1,7 @@
 import { buildPrompt } from './prompt.js'
 import { generatePlan } from './api.js'
-import { savePlan } from './storage.js';
+import { savePlan } from './storage.js'
+import {getanimation,headanimation} from './ui.js';
 const form = $('#form').parsley();
 let step = 0
 export function next() {
@@ -38,6 +39,9 @@ export function next() {
         try {
             suivant.disabled = true
             suivant.textContent = 'Generation...'
+            suivant.style.width='100px'
+
+            getanimation("L'IA analyse votre projet...")
             const prompt = buildPrompt(project);
             const plan = await generatePlan(prompt)
                 console.log('Projet généré :', plan);
@@ -50,7 +54,8 @@ export function next() {
              alert(error.message)
         }finally {
             suivant.disabled = false;
-            suivant.textContent = 'Génerer';
+            suivant.textContent = 'Génerer'
+            headanimation()
         }
                 }
 

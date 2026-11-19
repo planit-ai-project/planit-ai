@@ -18,7 +18,7 @@
                 </a>
                 <a href="new-project.html" class="text-[#176B55] font-bold border-b-2"> Nouveau projet</a>
             </div>
-            <button id="Parametre"  class="bg-[#123C32] text-white px-4 py-2 rounded-lg">
+            <button id="Parametre" class="bg-[#123C32] text-white px-4 py-2 rounded-lg">
                 Parametre IA
             </button>
         </nav>
@@ -26,7 +26,7 @@
 
     <main class=" w-full max-w-7xl mx-auto px-5 py-5  rounded-2xl mt-2 mb-8">
         <div class="grid grid-col-1 md:grid-cols-[60%_40%] border-1 rounded-2xl  p-5 gap-2">
-            <form id="form"  data-parsley-validate>
+            <form id="form" data-parsley-validate>
                 <div class="text-[20px] p-3">PLANIT <span class="text-[#176B55]">IA</span>
                 </div>
                 <div class="text-gray-500 text-[12px] px-3 font-bold">cree votre projet avec une seul click
@@ -45,58 +45,43 @@
                 <!-- step1 -->
                 <div id="formule1" class="flex flex-col gap-2 p-5 ">
                     <label for="projectName" class=" font-bold mb-2"> Nom du projet</label>
-                    <input type="text" id="projectName" placeholder="nom de votre projet"
-                        required
+                    <input type="text" id="projectName" placeholder="nom de votre projet" required
                         class="border rounded-lg p-3 border-gray-700 outline-none focus:border-[#176B55]"
                         data-parsley-group="step1" data-parsley-required-message="Le nom est obligatoire" />
 
                     <label for="description" class=" font-bold mb-2"> Description</label>
-                    <textarea id="description" placeholder="Décrivez votre projet..."
-                        required
+                    <textarea id="description" placeholder="Décrivez votre projet..." required
                         data-parsley-required-message="La description est obligatoire" data-parsley-group="step1"
                         class="border border-gray-700 rounded-lg p-3 outline-none focus:border-[#176B55]"></textarea>
                     <label for="brief" class=" font-bold mb-2"> Brief complet</label>
-                    <textarea id="brief" placeholder="decriver votre obkectif et votre fonctionalite..."
-                        required
+                    <textarea id="brief" placeholder="decriver votre obkectif et votre fonctionalite..." required
                         class="border border-gray-700 rounded-lg p-3 outline-none focus:border-[#176B55]"
                         data-parsley-required-message="brief obligatoir" data-parsley-group="step1"></textarea>
                 </div>
                 <!-- step2 -->
                 <div id="formule2" class="flex flex-col gap-2 p-5 hidden">
                     <label for="duration">Durée (en jours)</label>
-                    <input placeholder="nombre de jour de projet " type="number" id="duration"
-                        min="1"
-                        data-parsley-min="1"
-                        data-parsley-min-message="La valeur doit être superieure ou egale a 1"
-                        data-parsley-type="integer"
-                        data-parsley-type-message="Veuillez saisir un nombre entier"
-                        required
-                        data-parsley-required-message="nombre de jour de projet obligatoire" data-parsley-group="step2"
+                    <input placeholder="nombre de jour de projet " type="number" id="duration" min="1"
+                        data-parsley-min="1" data-parsley-min-message="La valeur doit être superieure ou egale a 1"
+                        data-parsley-type="integer" data-parsley-type-message="Veuillez saisir un nombre entier"
+                        required data-parsley-required-message="nombre de jour de projet obligatoire"
+                        data-parsley-group="step2"
                         class="border border-gray-700 rounded-lg p-3 outline-none focus:border-[#176B55]">
                     <label for="developers">Nombre de developpeurs</label>
-                    <input type="number" id="developers"
-                        min="1"
-                        data-parsley-min="1"
+                    <input type="number" id="developers" min="1" data-parsley-min="1"
                         data-parsley-min-message="La valeur doit être superieure ou egale a 1"
-                        data-parsley-type="integer"
-                        data-parsley-type-message="Veuillez saisir un nombre entier"
-                        required
-                        class="border border-gray-700 rounded-lg p-3 outline-none focus:border-[#176B55]"
-                        data-parsley-required-message="Nombre de developpeurs obligatoire"
-                        data-parsley-group="step2"
+                        data-parsley-type="integer" data-parsley-type-message="Veuillez saisir un nombre entier"
+                        required class="border border-gray-700 rounded-lg p-3 outline-none focus:border-[#176B55]"
+                        data-parsley-required-message="Nombre de developpeurs obligatoire" data-parsley-group="step2"
                         placeholder="nombre de developpeurs">
                     <label for="technologies">Technologies</label>
-                    <input type="text" id="Technologies"
-                        required
-                        data-parsley-required-message="Technologies obligatoire"
-                        data-parsley-group="step2"
+                    <input type="text" id="Technologies" required
+                        data-parsley-required-message="Technologies obligatoire" data-parsley-group="step2"
                         class="border border-gray-700 rounded-lg p-3 outline-none focus:border-[#176B55]"
                         placeholder="nombre de developpeurs">
                     <label for="difficulty">Niveau de difficulte</label>
-                    <select name="difficulty" id="difficulty"
-                        required
-                        data-parsley-required-message="difficulte obligatoir"
-                        data-parsley-group="step2"
+                    <select name="difficulty" id="difficulty" required
+                        data-parsley-required-message="difficulte obligatoir" data-parsley-group="step2"
                         class="border border-gray-700 rounded-lg p-3 outline-none focus:border-[#176B55] bg-[#E8F3EE]">
                         <option value="">Choisir un niveau</option>
                         <option value="Beginner">Beginner</option>
@@ -106,18 +91,31 @@
                 </div>
 
                 <div class="flex justify-end mr-5">
-                    <button type="button"  id="precedent" class="p-1 ml-5 bg-[#176B55] text-white rounded-full w-25 text-center hidden ">
+                    <button type="button" id="precedent"
+                        class="p-1 ml-5 bg-[#176B55] text-white rounded-full w-25 text-center hidden ">
                         precedent
                     </button>
-                    <button  type="button"  id="suivant" class="p-1 bg-[#176B55] text-white rounded-full w-20 text-center ">
+                    <button type="button" id="suivant"
+                        class="p-1 bg-[#176B55] text-white rounded-full w-20 text-center ">
                         suivant
                     </button>
                 </div>
+                <dialog id="generationDialog" class="w-[90%] max-w-[350px] rounded-xl p-6 border border-[#176B55] text-center">
+                    <div class="flex justify-center mb-4">
+                        <div class="loader"></div>
+                    </div>
+                    <h3 class="font-bold text-[#123C32]">
+                        Génération en cours
+                    </h3>
+                    <p class="text-gray-500 text-sm mt-2">
+                        L'IA analyse votre projet...
+                    </p>
+                </dialog>
             </form>
             <div class=""><img src="src/images/form1.png" alt="" class="h-142 w-full rounded-2xl"></div>
         </div>
     </main>
-<dialog id="dialog" class="w-[90%] max-w-[400px] rounded-2xl p-5 mx-auto fixed top-5">
+    <dialog id="dialog" class="w-[90%] max-w-[400px] rounded-2xl p-5 mx-auto fixed top-5">
         <div class="flex items-center justify-between mb-5">
             <h2 class="font-bold text-dark-green">
                 Clé API Gemini
@@ -135,7 +133,8 @@
                 class=" bg-emerald text-white rounded-lg p-2 w-[48%] cursor-pointer">Supprimer</button>
         </div>
         <div class="flex justify-center">
-            <a id="demo" href="project.html" class="bg-emerald text-white text-center rounded-lg p-2 w-full cursor-pointer">Mode
+            <a id="demo" href="project.html"
+                class="bg-emerald text-white text-center rounded-lg p-2 w-full cursor-pointer">Mode
                 demo</a>
         </div>
     </dialog>
@@ -148,4 +147,5 @@
     <!-- <script type="module" src="./src/js/validation.js"></script>
     <script type="module" src="./src/js/ui.js"></script> -->
 </body>
+
 </html>

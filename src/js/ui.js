@@ -43,3 +43,15 @@ export function ModalAPI() {
     //     dialog.close()
     // })
 }
+
+
+
+export function getanimation(message) {
+    const dialog = document.getElementById('generationDialog');
+    dialog.showModal();
+}
+export function headanimation(){
+    const dialog = document.getElementById('generationDialog');
+    dialog.close();
+
+}
