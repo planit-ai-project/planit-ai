@@ -11,14 +11,12 @@ export function affiche_dialoge() {
     })
 }
 
-
 export function ModalAPI() {
     const dialog = document.getElementById('dialog')
     const apiKey = document.getElementById('apiKey')
     const enregistrer = document.getElementById('Enregistrer')
     const supprimer = document.getElementById('Supprimer')
     const demo = document.getElementById('demo')
-    // const closeDialog = document.getElementById('closedialoge')
   enregistrer.addEventListener('click', () => {
     const api = apiKey.value.trim()
     if (api === '') {
@@ -38,13 +36,8 @@ export function ModalAPI() {
     demo.addEventListener('click', () => {
         savedemo(true)
     })
-    //     // Fermer
-    // closeDialog.addEventListener('click', () => {
-    //     dialog.close()
-    // })
+
 }
-
-
 
 export function getanimation(message) {
     const dialog = document.getElementById('generationDialog');

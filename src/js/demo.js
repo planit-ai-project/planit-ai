@@ -1,7 +1,5 @@
 import { afficherForm } from "./modifier.js";
 import { supprimerTache } from './supprimer.js';
-
-
 export async function datademo() {
     try {
         const res = await fetch('./src/js/demo.json')
@@ -15,8 +13,6 @@ export async function datademo() {
     }
 
 }
-
-
 export function affichage_demo(data) {
     try {
         //affichaes des taches demo
@@ -214,9 +210,7 @@ export function affichage_demo(data) {
                     changerStyle(tabDetail)
                     tabContent.innerHTML = detailHTML
                 })
-                //  tabModifier.addEventListener('click', () => {
-                //      changerStyle(tabModifier)
-                //  })
+
                 tabSupprimer.addEventListener('click', () => {
                     const confirmer = confirm('Voulez-vous supprimer cette tâche ?');
                     if (confirmer) {

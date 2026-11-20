@@ -1,9 +1,9 @@
 import { geteapi } from './storage.js';
 export async function generatePlan(prompt) {
-    const apiKey = geteapi();
+    const apiKey = geteapi()
     if(!apiKey)throw new Error("api key manquante");
-    
-const url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent";
+const MODELE = "gemini-3.5-flash-lite";
+const url = `https://generativelanguage.googleapis.com/v1beta/models/${MODELE}:generateContent`
     const response = await fetch(url, {
         method: "POST",
         headers: {

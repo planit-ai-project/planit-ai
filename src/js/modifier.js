@@ -1,3 +1,4 @@
+import { saveTasks } from './storage.js'
 export function modifierTache(tache, modifications, tasks){
     if (modifications.status === 'Done') {
         for (const id of tache.dependencies) {
@@ -14,14 +15,11 @@ export function modifierTache(tache, modifications, tasks){
     tache.deadline = modifications.deadline
     tache.status = modifications.status
     // Sauvegarder
-    localStorage.setItem('demoTasks', JSON.stringify(tasks))
+     saveTasks(tasks)
     return true
 }
 export function afficherForm(t, tasks, tabContent, detailHTML, detailTach, activerTab, tabDetail) {
-                //partie modifier
-                // const tabContent = document.getElementById('tabContent');
-                // const detailHTML = tabContent.innerHTML;
-    const tabModifier = document.getElementById('tabModifier');
+    const tabModifier = document.getElementById('tabModifier')
                     activerTab(tabModifier)
                     tabContent.innerHTML = `
                    <form id="formModifier" class="flex flex-col gap-4">
@@ -80,15 +78,13 @@ export function afficherForm(t, tasks, tabContent, detailHTML, detailTach, activ
     // Annuler
     document.getElementById('annuler')
         .addEventListener('click', () => {
-            tabContent.innerHTML = detailHTML;
-            activerTab(tabDetail);
+            tabContent.innerHTML = detailHTML
+            activerTab(tabDetail)
         })
             // Enregistrer
     document.getElementById('formModifier')
         .addEventListener('submit', (e) => {
-
-            e.preventDefault();
-
+            e.preventDefault()
             const modifications = {
                 title: document.getElementById('editTitle').value.trim(),
                 description: document.getElementById('editDescription').value.trim(),
@@ -97,15 +93,14 @@ export function afficherForm(t, tasks, tabContent, detailHTML, detailTach, activ
                 deadline: document.getElementById('editDeadline').value.trim(),
                 status: document.getElementById('editStatus').value
             }
-            const resultat = modifierTache(t, modifications, tasks);
+            const resultat = modifierTache(t, modifications, tasks)
 
             if (!resultat) {
-                alert('Terminez les dépendances avant de terminer cette tâche.');
-                return;
+                alert('Terminez les dépendances avant de terminer cette tâche.')
+                return
             }
-            detailTach.close();
-            //!!!!!!!!!!!!!!!
-            location.reload();
+            detailTach.close()
+            location.reload()
         })
                   
 }

@@ -37,26 +37,30 @@ PLANIT-AI/
 ├── project.html
 │
 ├── src/
-│   ├── css/
-│   │   ├── input.css
-│   │   └── output.css
+│   ├── images/
 │   │
 │   ├── js/
-│   │   ├── main.js
-│   │   ├── ui.js
-│   │   ├── state.js
 │   │   ├── api.js
+│   │   ├── dashboard.js
+│   │   ├── demo.js
+│   │   ├── main.js
+│   │   ├── modifier.js
 │   │   ├── prompt.js
 │   │   ├── storage.js
-│   │   ├── tasks.js
-│   │   ├── validation.js
-│   │   └── utils.js
+│   │   ├── supprimer.js
+│   │   ├── ui.js
+│   │   └── validation.js
 │   │
-│   └── data/
-│       └── sample-plan.json
+│   ├── data/
+│   │   └── sample-plan.json
+│   │
+│   └── css/
+│       ├── input.css
+│       └── output.css
 │
 ├── Prompt.txt
 ├── package.json
+├── package-lock.json
 ├── .gitignore
 └── README.md
 ```

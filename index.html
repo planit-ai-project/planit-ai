@@ -25,7 +25,7 @@
         </nav>
     </header>
     <!-- //7xl == 1280 -->
-    <main class="max-w-7xl mx-auto px-5 py-5 border-1 rounded-2xl my-2">
+    <main class="w-full max-w-7xl mx-auto px-5 py-5 border-1 rounded-2xl my-2">
         <section class="flex items-center justify-center flex-col md:justify-between md:flex-row ">
             <div>
                 <h1 class="font-bold  text-[#123C32]">
@@ -42,19 +42,19 @@
         </section>
         <section class="grid grid-cols-2 gap-15 mb-3 mt-5 md:grid-cols-4 ">
             <article class=" p-3 rounded-lg  border border-[black]  border-2  text-center text-white ">
-                    <p class="text-2xl font-bold text-[#123C32]">3</p>
+                    <p id="totalProjects" class="text-2xl font-bold text-[#123C32]">0</p>
                     <p class=" text-gray-500">Projets</p>
             </article>
             <article class=" p-3 rounded-lg  border border-[black]  border-2  text-center text-white">
-                    <p class="text-2xl font-bold text-[#123C32]">3</p>
+                    <p id="totalTasks" class="text-2xl font-bold text-[#123C32]">0</p>
                     <p class=" text-gray-500">Taches</p>
             </article>
             <article class=" p-3 rounded-lg  border border-[black]  border-2  text-center text-white">
-                    <p class="text-2xl font-bold text-[#123C32]">3</p>
+                    <p id="totalDone" class="text-2xl font-bold text-[#123C32]">0</p>
                     <p class=" text-gray-500">Termine</p>
             </article>
             <article class=" p-3 rounded-lg  border border-[black]  border-2  text-center text-white">
-                    <p class="text-2xl font-bold text-[#123C32]">30%</p>
+                    <p id="globalProgress"  class="text-2xl font-bold text-[#123C32]">0%</p>
                     <p class=" text-gray-500">Avancement global</p>
             </article>
         </section>
@@ -64,110 +64,11 @@
                     Mes projets
                 </h2>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 ">
-                <article class="bg-white rounded-xl border border-[#E8F3EE] p-5 mt-[30px] max-w-3xl">
-                    <div>
-                        <h3 class="text-lg font-bold text-[#123C32]">
-                            E-commerce Platform
-                        </h3>
-                        <p class=" text-gray-500 ">
-                            Développement d une plateforme e-commerce
-                            avec React et Laravel.
-                        </p>
-                        <div class="mt-5">
+            <div id="projectsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 ">
 
-                            <div class="flex items-center justify-between  mb-2">
-                                <span class="text-gray-500">Progression</span>
-                                <span class="font-bold text-[#123C32]">69%</span>
-                            </div>
 
-                            <div class="w-full h-2 bg-[#E8F3EE] rounded-full ">
-                                <div class="w-[65%] h-full bg-[#176B55] rounded-full"></div>
-                            </div>
-
-                        </div>
-                        <div class="flex justify-between items-center mt-5">
-                            <a href="project.html?id=1"
-                                class=" font-bold text-[#176B55] hover:text-[#123C32] border rounded-2xl py-2 px-3">
-                                Ouvrir le projet
-                            </a>
-                            <a href="project.html?id=1"
-                                class=" font-bold text-[#176B55] hover:text-[#123C32] border rounded-2xl py-2 px-3">
-                                supprmer
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="bg-white rounded-xl border border-[#E8F3EE] p-5 mt-[30px] max-w-3xl">
-                    <div>
-                        <h3 class="text-lg font-bold text-[#123C32]">
-                            E-commerce Platform
-                        </h3>
-                        <p class=" text-gray-500 ">
-                            Développement d une plateforme e-commerce
-                            avec React et Laravel.
-                        </p>
-                        <div class="mt-5">
-
-                            <div class="flex items-center justify-between  mb-2">
-                                <span class="text-gray-500">Progression</span>
-                                <span class="font-bold text-[#123C32]">69%</span>
-                            </div>
-
-                            <div class="w-full h-2 bg-[#E8F3EE] rounded-full ">
-                                <div class="w-[65%] h-full bg-[#176B55] rounded-full"></div>
-                            </div>
-
-                        </div>
-                        <div class="flex justify-between items-center mt-5">
-                            <a href="project.html?id=1"
-                                class=" font-bold text-[#176B55] hover:text-[#123C32] border rounded-2xl py-2 px-3">
-                                Ouvrir le projet
-                            </a>
-                            <a href="project.html?id=1"
-                                class=" font-bold text-[#176B55] hover:text-[#123C32] border rounded-2xl py-2 px-3">
-                                supprmer
-                            </a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="bg-white rounded-xl border border-[#E8F3EE] p-5 mt-[30px] max-w-3xl">
-                    <div>
-                        <h3 class="text-lg font-bold text-[#123C32]">
-                            E-commerce Platform
-                        </h3>
-                        <p class=" text-gray-500 ">
-                            Développement d une plateforme e-commerce
-                            avec React et Laravel.
-                        </p>
-                        <div class="mt-5">
-
-                            <div class="flex items-center justify-between  mb-2">
-                                <span class="text-gray-500">Progression</span>
-                                <span class="font-bold text-[#123C32]">69%</span>
-                            </div>
-
-                            <div class="w-full h-2 bg-[#E8F3EE] rounded-full ">
-                                <div class="w-[65%] h-full bg-[#176B55] rounded-full"></div>
-                            </div>
-
-                        </div>
-                        <div class="flex justify-between items-center mt-5">
-                            <a href="project.html?id=1"
-                                class=" font-bold text-[#176B55] hover:text-[#123C32] border rounded-2xl py-2 px-3">
-                                Ouvrir le projet
-                            </a>
-                            <a href="project.html?id=1"
-                                class=" font-bold text-[#176B55] hover:text-[#123C32] transition border rounded-2xl py-2 px-3">
-                                supprmer
-                            </a>
-                        </div>
-                    </div>
-                </article>
             </div>
-            </div>
+        
         </section>
     </main>
     <div
@@ -175,7 +76,7 @@
         <div>
             <i data-lucide="folder-open"></i>
         </div>
-        <div>
+        <div id="aucun">
             Aucun projet pour le moment
         </div>
         <div class="text-gray-500">

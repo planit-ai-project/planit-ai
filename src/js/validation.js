@@ -1,6 +1,6 @@
 import { buildPrompt } from './prompt.js'
 import { generatePlan } from './api.js'
-import { savePlan, getPlan } from './storage.js'
+import { saveProject } from './storage.js'
 import { getanimation, headanimation } from './ui.js';
 const form = $('#form').parsley();
 let step = 0
@@ -21,9 +21,7 @@ export function next() {
                 presedent.classList.remove('hidden')
                 suivant.parentElement.style.justifyContent = 'space-between'
                 suivant.textContent = 'Générer'
-                // suivant.setAttribute('id','genere')
                 step = 1
-                // form.resetValidation()
             }
         } else if (step === 1) {
             if ((form.validate({ group: 'step2' }))) {
@@ -40,17 +38,12 @@ export function next() {
                     suivant.disabled = true
                     suivant.textContent = 'Generation...'
                     suivant.style.width = '100px'
-
                     getanimation("L'IA analyse votre projet...")
                     const prompt = buildPrompt(project);
                     const plan = await generatePlan(prompt)
-                    console.log('Projet généré :', plan);
-                    console.log('Nombre de tâches :', plan.tasks.length);
-                    savePlan(plan);
-                    console.log('Plan sauvegardé :', getPlan());
-                    alert('Plan sauvegardé avec succès !');
-                    window.location.href = 'project.html'
-                    console.log(plan);
+                    const projectSaved = saveProject(plan)
+                    alert('Plan sauvegardé avec succès !')
+                    window.location.href = `project.html?id=${projectSaved.id}`
                 } catch (error) {
                     alert(error.message)
                 } finally {
