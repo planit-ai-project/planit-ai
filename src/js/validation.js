@@ -1,7 +1,7 @@
 import { buildPrompt } from './prompt.js'
 import { generatePlan } from './api.js'
-import { savePlan } from './storage.js'
-import {getanimation,headanimation} from './ui.js';
+import { savePlan, getPlan } from './storage.js'
+import { getanimation, headanimation } from './ui.js';
 const form = $('#form').parsley();
 let step = 0
 export function next() {
@@ -11,53 +11,54 @@ export function next() {
     const cercle = document.getElementById('cercle')
     const suivant = document.getElementById('suivant')
     const presedent = document.getElementById('precedent')
-    suivant.addEventListener('click',  async() => {
+    suivant.addEventListener('click', async () => {
         if (step === 0) {
-        if (form.validate({ group: 'step1' })) {
-            progre.style.width = '100%'
-            formule1.classList.add('hidden')
-            formule2.classList.remove('hidden')
-            cercle.children[1].style.cssText = `background-color: #176B55;color: white;`
-            presedent.classList.remove('hidden')
-            suivant.parentElement.style.justifyContent = 'space-between'
-            suivant.textContent = 'Générer'
-            // suivant.setAttribute('id','genere')
-            step=1
-            // form.resetValidation()
-             }
-        } else if (step === 1) { 
-                if ((form.validate({ group: 'step2' }))) {
-        const project = {
-            name: document.getElementById('projectName').value,
-            description: document.getElementById('description').value,
-            brief: document.getElementById('brief').value,
-            duration: Number(document.getElementById('duration').value),
-            developers: Number(document.getElementById('developers').value),
-            technologies: document.getElementById('Technologies').value,
-            difficulty: document.getElementById('difficulty').value
-        }
-        try {
-            suivant.disabled = true
-            suivant.textContent = 'Generation...'
-            suivant.style.width='100px'
-
-            getanimation("L'IA analyse votre projet...")
-            const prompt = buildPrompt(project);
-            const plan = await generatePlan(prompt)
-                console.log('Projet généré :', plan);
-                console.log('Nombre de tâches :', plan.tasks.length);
-            savePlan(plan)
-            alert('plan avec succes')
-            // window.location.href = 'project.html'
-            console.log(plan);
-        } catch (error) {
-             alert(error.message)
-        }finally {
-            suivant.disabled = false;
-            suivant.textContent = 'Génerer'
-            headanimation()
-        }
+            if (form.validate({ group: 'step1' })) {
+                progre.style.width = '100%'
+                formule1.classList.add('hidden')
+                formule2.classList.remove('hidden')
+                cercle.children[1].style.cssText = `background-color: #176B55;color: white;`
+                presedent.classList.remove('hidden')
+                suivant.parentElement.style.justifyContent = 'space-between'
+                suivant.textContent = 'Générer'
+                // suivant.setAttribute('id','genere')
+                step = 1
+                // form.resetValidation()
+            }
+        } else if (step === 1) {
+            if ((form.validate({ group: 'step2' }))) {
+                const project = {
+                    name: document.getElementById('projectName').value,
+                    description: document.getElementById('description').value,
+                    brief: document.getElementById('brief').value,
+                    duration: Number(document.getElementById('duration').value),
+                    developers: Number(document.getElementById('developers').value),
+                    technologies: document.getElementById('Technologies').value,
+                    difficulty: document.getElementById('difficulty').value
                 }
+                try {
+                    suivant.disabled = true
+                    suivant.textContent = 'Generation...'
+                    suivant.style.width = '100px'
+
+                    getanimation("L'IA analyse votre projet...")
+                    const prompt = buildPrompt(project);
+                    const plan = await generatePlan(prompt)
+                    console.log('Projet généré :', plan);
+                    console.log('Nombre de tâches :', plan.tasks.length);
+                    savePlan(plan);
+                    console.log('Plan sauvegardé :', getPlan());
+                    alert('Plan sauvegardé avec succès !');
+                    window.location.href = 'project.html'
+                    console.log(plan);
+                } catch (error) {
+                    alert(error.message)
+                } finally {
+                    suivant.disabled = false;
+                    suivant.textContent = 'Génerer'
+                    headanimation()
+                }
+            }
 
         }
     })
@@ -71,7 +72,7 @@ export function next() {
         suivant.parentElement.style.justifyContent = 'end'
         suivant.textContent = 'suivant'
         // suivant.setAttribute('id','suivant')
-        step=0
+        step = 0
     })
 
 

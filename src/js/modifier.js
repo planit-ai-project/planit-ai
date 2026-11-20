@@ -21,7 +21,7 @@ export function afficherForm(t, tasks, tabContent, detailHTML, detailTach, activ
                 //partie modifier
                 // const tabContent = document.getElementById('tabContent');
                 // const detailHTML = tabContent.innerHTML;
-                tabModifier.addEventListener('click', () => {
+    const tabModifier = document.getElementById('tabModifier');
                     activerTab(tabModifier)
                     tabContent.innerHTML = `
                    <form id="formModifier" class="flex flex-col gap-4">
@@ -107,7 +107,7 @@ export function afficherForm(t, tasks, tabContent, detailHTML, detailTach, activ
             //!!!!!!!!!!!!!!!
             location.reload();
         })
-                  })
+                  
 }
 
                 

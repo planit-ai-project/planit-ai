@@ -1,19 +1,27 @@
 import { afficherForm } from "./modifier.js";
 import { supprimerTache } from './supprimer.js';
-export async function affichage_demo() {
+
+
+export async function datademo() {
     try {
         const res = await fetch('./src/js/demo.json')
-        if (!res.ok) {
-            throw new Error(` http ${res.status}`);
-        }
+        if (!res.ok) throw new Error(` http ${res.status}`);
         const data = await res.json()
         const savedTasks = localStorage.getItem('demoTasks')
-        if (savedTasks) {
-            data.tasks = JSON.parse(savedTasks);
-        }
+        if (savedTasks) data.tasks = JSON.parse(savedTasks);
+        affichage_demo(data)
+    } catch (errore) {
+        console.log(errore.message)
+    }
+
+}
+
+
+export function affichage_demo(data) {
+    try {
         //affichaes des taches demo
         const total = data.tasks.length
-        const termine = data.tasks.filter(e => e.status === 'done').length
+        const termine = data.tasks.filter(e => e.status.toLowerCase() === 'done').length
         const progress = Math.floor((termine / total) * 100)
         const demoCard = document.getElementById('demoprogress')
         demoCard.innerHTML =
@@ -43,9 +51,13 @@ export async function affichage_demo() {
         </article>
      
     </section>`
+
         const todoTache = document.getElementById('todoTache');
         const progressTache = document.getElementById('progressTache')
         const doneTache = document.getElementById('doneTache')
+        todoTache.innerHTML = ''
+        progressTache.innerHTML = ''
+        doneTache.innerHTML = ''
         data.tasks.forEach(t => {
             const card = `
         <article id="${t.id}" class="bg-[#E8F3EE]  cursor-pointer border border-gray-100 rounded-lg p-3 flex flex-col gap-2">
@@ -65,13 +77,15 @@ export async function affichage_demo() {
                 ${t.dependencies}
             </p>
         </article>`
-            if (t.status === 'To Do') {
+
+            if (t.status.toLowerCase() === 'to do') {
                 todoTache.insertAdjacentHTML('beforeend', card);
-            } else if (t.status === 'In Progress') {
+            } else if (t.status.toLowerCase() === 'in progress') {
                 progressTache.insertAdjacentHTML('beforeend', card);
-            } else if (t.status === 'done') {
+            } else if (t.status.toLowerCase() === 'done') {
                 doneTache.insertAdjacentHTML('beforeend', card);
             }
+
         })
         //if click in tasck
         const detailTach = document.getElementById('detaille');
@@ -208,7 +222,7 @@ export async function affichage_demo() {
                     if (confirmer) {
                         supprimerTache(t, data.tasks);
                         detailTach.close();
-                        // location.reload();
+                        location.reload();
                     }
                 });
                 //showmodel
